@@ -22,15 +22,15 @@ def install_missing_packages():
                 __import__('PIL')  # Pillow provides the PIL module
             else:
                 __import__(package.lower().replace('-', '_'))
-            st.sidebar.success(f"✓ {package} is already installed.")
+            # st.sidebar.success(f"✓ {package} is already installed.")
         except ImportError:
-            st.sidebar.info(f"Installing {package}...")
+            # st.sidebar.info(f"Installing {package}...")
             try:
                 if package == 'PyMuPDF':
                     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
                 else:
                     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-                st.sidebar.success(f"✓ {package} installed successfully.")
+                # st.sidebar.success(f"✓ {package} installed successfully.")
                 installed.append(package)
             except Exception as e:
                 st.sidebar.error(f"Failed to install {package}: {str(e)}")
@@ -260,7 +260,7 @@ def main():
     """, unsafe_allow_html=True)
     
     st.title("📚 PDF Booklet Creator")
-    st.subheader("Convert any PDF into a booklet format for hard binding")
+    st.subheader("Convert any PDF into a booklet format. Tweak settings from the sidebar.")
     
     # Install missing packages if needed
     with st.sidebar:
