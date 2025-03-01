@@ -35,8 +35,8 @@ def install_missing_packages():
             except Exception as e:
                 st.sidebar.error(f"Failed to install {package}: {str(e)}")
                 
-    if installed:
-        st.sidebar.warning("Installed new packages. Please restart the app if you encounter any issues.")
+    # if installed:
+    #     st.sidebar.warning("Installed new packages. Please restart the app if you encounter any issues.")
     
     return True
 
