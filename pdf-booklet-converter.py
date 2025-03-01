@@ -260,15 +260,11 @@ def main():
     """, unsafe_allow_html=True)
     
     st.title("📚 PDF Booklet Creator")
-    st.subheader("Convert any PDF into a booklet format. Tweak settings from the sidebar.")
-    
-    # Install missing packages if needed
-    with st.sidebar:
-        st.header("Package Installation")
-        install_status = install_missing_packages()
-    
+    st.subheader("Convert any PDF into a booklet format")
+    st.markdown("Tweak settings from the sidebar after uploading your PDF.")
+    st.markdown("---")
     # File uploader
-    uploaded_file = st.file_uploader("Upload your PDF file", type=["pdf"])
+    uploaded_file = st.file_uploader("Upload your PDF file (make sure it's not password protected)", type=["pdf"])
     
     if uploaded_file is not None:
         # Save the uploaded file to a temporary file
